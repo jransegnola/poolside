@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Poolside - Joe Ransegnola</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap" rel="stylesheet">
+</head>
+<style>
+  .pt-mono-regular {
+  font-family: "PT Mono", serif;
+  font-weight: 400;
+  font-style: normal;  
+  }
+  .poolside-purple {
+    color: rgb(79, 70, 229);
+  }
+  .poolside-btn {
+    background-color: rgb(79, 70, 229);
+    color: antiquewhite;
+    padding: 5px 20px 5px 10px;
+    margin: 20px 0px;
+  }
+</style>
+<body style="background-color: rgb(255, 250, 245);">
+  <h1 class="pt-mono-regular poolside-purple">Poolside Interview Test Website up and running!</h1>
+  <div id="message" class="pt-mono-regular poolside-purple">Click to fetch data...</div>
+  <button id="fetchDataButton" class="poolside-btn pt-mono-regular">Click Me!</button>
+
+  <script>
+    document.getElementById('fetchDataButton').addEventListener('click', async () => {
+    const response = await fetch('http://localhost:3000/messages');
+    const data = await response.json();
+    document.getElementById('message').innerText = data.message;
+});
+
+  </script>
+</body>
+</html>
